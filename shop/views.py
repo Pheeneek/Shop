@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, reverse
-from django.http import HttpResponse
 from django.views import View
 from django.core.paginator import Paginator, EmptyPage
 

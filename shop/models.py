@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User as UserAuth
 
 # Create your models here.
 
@@ -7,6 +8,8 @@ class User(models.Model):
     email = models.EmailField()
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
+
+    auth_user = models.OneToOneField(UserAuth, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.last_name} {self.first_name}"
@@ -66,3 +69,5 @@ class Wishlist(models.Model):
 
     def __str__(self):
         return f"{self.user}: {self.product}"
+
+
